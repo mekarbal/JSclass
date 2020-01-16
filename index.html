@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Class</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<center><h1>Enter your informations </h1></center>
+<hr>
+<center>
+	<div class="calc">
+
+<form>
+	<p>
+
+	 First Name :<input type="text" name="fname" id="fn"><br><br>
+	 Last Name :<input type="text" name="fname" id="ln"><br><br>
+	 Date of birth :<input type="text" name="fname" id="date"><br><br>
+	 Place of birth:<input type="text" name="fname" id="place"><br><br>
+	 N° Phone :<input type="text" name="fname" id="nbr"><br><br>
+	 Address :<input type="text" name="fname" id="adr"><br><br>
+	
+	<input type="button" name="submit" value="validate" onclick="affichage()">
+	<input type="button" name="submit" value="Clear" onclick="clearFeilds()">
+	<input type="button" name="submit" value="Delelte Row" onclick="deleTe()">
+
+
+	</p>
+</form>
+</div>
+
+<hr>
+<table class="table table-striped table-dark" id="montableau" border="2px;">
+	<tr>
+		<th>First name</th>
+		<th>Last Name</th>
+		<th>Date</th>
+		<th>Place of birth</th>
+		<th>Te N°</th>
+		<th>Adresse</th>
+
+	</tr>	
+</table>
+</center>
+
+<script type="text/javascript" >
+
+
+class Personne {
+
+
+			  constructor(name,lname,date,place,nbr,adr) {
+			    this.fname = name;
+			    this.lname = lname;
+			    this.date = date;
+			    this.place = place;
+			    this.nbr = nbr;
+			    this.adr = adr;
+			  			
+			  }
+
+
+
+			}
+
+
+			function clearFeilds(){
+				document.getElementById('fn').value = '';
+				document.getElementById('ln').value = '';
+				document.getElementById('date').value= '';
+				document.getElementById('place').value = '';
+				document.getElementById('nbr').value= '';
+				document.getElementById('adr').value= '';
+			}
+
+	function affichage() {
+		
+	
+			if (document.getElementById('fn').value=="" 
+				&& document.getElementById('ln').value=="" 
+				&& document.getElementById('date').value=="" 
+				&& document.getElementById('place').value=="" 
+				&& document.getElementById('nbr').value=="" 
+				&& document.getElementById('adr').value==""
+				) {
+					alert("enter your info please ");
+				
+				}else if (document.getElementById('fn').value==""){
+					alert("enter your name please ");
+				}else if(document.getElementById('ln').value==""){
+					alert("enter your lastname please ");
+				}else if(document.getElementById('date').value==""){
+					alert("enter your date of birth please ");
+				}else if(document.getElementById('place').value==""){
+					alert("enter your place of birth please ");
+				}else if(document.getElementById('nbr').value==""){
+					alert("enter your phone please ");
+				}else if(document.getElementById('adr').value==""){
+					alert("enter your Adresse please ");
+				}
+
+
+				else{
+			
+			
+
+			var pers = new Personne(
+				document.getElementById('fn').value,
+				document.getElementById('ln').value,
+				document.getElementById('date').value,
+				document.getElementById('place').value,
+				document.getElementById('nbr').value,
+				document.getElementById('adr').value
+				);
+
+		
+
+
+		    var TR = document.createElement ("tr");
+			
+		    var TD1  = document.createElement ("td");
+		    var TXT1 = document.createTextNode (pers.fname);
+		    TD1.appendChild (TXT1);
+			
+		    var TD2  = document.createElement ("td");
+		    var TXT2 = document.createTextNode (pers.lname);
+		    TD2.appendChild (TXT2);
+		    
+		    var TD3  = document.createElement ("td");
+		    var TXT3 = document.createTextNode (pers.date);
+		    TD3.appendChild (TXT3);
+
+		    var TD4  = document.createElement ("td");
+		    var TXT4 = document.createTextNode (pers.place);
+		    TD4.appendChild (TXT4);
+
+		    var TD5  = document.createElement ("td");
+		    var TXT5 = document.createTextNode (pers.nbr);
+		    TD5.appendChild (TXT5);
+		    var TD6  = document.createElement ("td");
+		    var TXT6 = document.createTextNode (pers.adr);
+		    TD6.appendChild (TXT6);
+			
+		    
+		    TR.appendChild(TD1);
+		    TR.appendChild(TD2);
+		    TR.appendChild(TD3);
+		    TR.appendChild(TD4);
+		    TR.appendChild(TD5);
+		    TR.appendChild(TD6);
+
+		    // On assemble la ligne au tableau
+		    document.getElementById ('montableau').appendChild (TR);
+		    }
+
+		
+		}
+		function deleTe() {
+		  document.getElementById("montableau").deleteRow(0);
+		}
+
+
+</script>
+
+</body>
+</html>
